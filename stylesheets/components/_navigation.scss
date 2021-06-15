@@ -1,0 +1,100 @@
+/*Code Sourced from previous activity by Mr. Hardman with many modifications to suit my project. This is what styles the navigation bar and all the elements inside of it*/
+nav{
+
+    /*auto height to make all anchors fit as well when the screen size changes*/
+    height: auto;
+
+    background-color: $content-background-color;
+    width: 100%;
+    padding-top: 3px;
+
+    /*displayed as flex to determine type of boxes generated for the navs when the screen size changes*/
+    display: flex;
+
+    /*development for all browsers*/
+    -webkit-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+
+    /*This is to allow the elements to wrap instead of resizing and getting smaller*/
+    flex-wrap: wrap;
+
+    /*development for all browsers*/
+    -webkit-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+
+    /*To allow the content and items to allign in the center*/
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    ul{
+
+        /*displayed as flex to determine type of boxes generated for the navs when the screen size changes*/
+        display: flex;
+
+        /*This is to allow the elements to wrap instead of resizing and getting smaller*/
+        flex-wrap: wrap;
+
+        width: 100%;
+        margin-left: 11px;
+
+        /*Removes the bullet points*/
+        list-style: none;
+
+        li{
+            a{
+
+                /*displays it as inline block*/
+                display: inline-block;
+
+                border-style: solid;
+                border-color: $content-background-color;
+                text-align: left;
+                margin-left: 9px;
+                padding: 5px;
+
+                /*Removes underline on A elements */
+                text-decoration: none;
+
+                margin-bottom: 2px;
+                margin-right: 2px;
+
+                /*grows by 1*/
+                flex-grow: 1;
+
+                /*allows it to not shrink*/
+                flex-shrink: 0;
+
+                flex-basis: 78px;
+
+                /* styling the hovered link on menu bar */
+                &:hover, &:focus {
+                    border-color: $text-background-color;
+                }
+            }
+        }
+    }
+}
+
+/*This is used to specify sperate styling for screen widths that are desktops where the minimum width has to be 1280px*/
+@media all and (min-width: 1280px){
+
+    /*Code Sourced from previous activity with modifications by Mr. Hardman, styles the nav bar and all elements inside of it in the desktop mode*/
+    nav{
+
+        /*styles anchors during desktop mode*/
+        a{
+            margin-left: 25px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            flex-basis: 215px;
+        }
+
+        /*Code Sourced from previous activity with modifications, styles UL in desktop mode*/
+        ul{
+            margin-left: 30px;
+        }
+    }
+}
