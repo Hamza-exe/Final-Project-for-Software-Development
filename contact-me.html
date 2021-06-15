@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<!--
+Name: Hamza Elafifi
+Course: Software Development 20S
+Teacher: Mr. Hardman
+School: Pembina Trails Early College
+Date Last Modified: June, 15, 2021
+-->
+
+<html>
+    <head>
+
+        <!-- Title of website -->
+        <title>Contact Me</title>
+     
+        <meta charset="utf-8"/>
+     
+        <!-- Link to external stylesheet -->
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+     
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    
+    </head>
+
+    <body>
+        
+        <!-- My header with div of HE Hamza Elafifi logo and the H2 with Hamza Elafifi -->
+        <div id="header">
+
+            <!-- HE logo -->
+            <img src="images/HE.png" alt="Hamza Elafifi Logo">
+
+            <h2>Hamza Elafifi</h2>
+        </div>
+
+        <!-- Navigation bar with all the relevant links to the website. -->
+        <nav>
+            <ul>
+                <li>
+                    <!-- link to home page -->
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <!-- About me page (current page) -->
+                    <a href="about-me.html">About Me</a>
+                </li>
+
+                <li>
+                    <!-- My resume and coverletter page (FOR FUTURE PROGRESS) -->
+                    <a href="">Resume & Cover Letter</a>
+                </li>
+
+                <li>
+                    <!-- My work samples page (FOR FUTURE PROGRESS) -->
+                    <a href="">Work Samples</a>
+                </li>
+
+                <li>
+                    <!-- My community involvement page -->
+                    <a href="community-involvement.html">Community Involvement</a>
+                </li>
+
+                <li>
+                    <!-- My ExtraCirricular Activities page (FOR FUTURE PROGRESS)-->
+                    <a href="eca.html">Extracurricular Activities</a>
+                </li>
+
+                <li>
+                    <!-- Contact Me page -->
+                    <a href="contact-me.html">Contact Me</a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <!-- Div holding the form, contact img photo, phone number, email, heading and paragraph, social medias and more -->
+        <div id="form">
+
+            <!-- Contact image photo -->
+            <img id="contact-img" src="images/contact-me.webp" class="photo" alt="Contact Me Photo">
+
+            <!-- Text with contact info and relevant text -->
+            <h1>Contact Me!</h1>
+            <p>Interested in learning more about me, my work, or how I can benefit your business or workplace?</p>
+            <p>Contact me with the info below!</p>
+            <p>Hamzaelafifi12@gmail.com</p>
+            <p>204-896-4755</p>
+
+            <!-- Div containing social media icons with links to my social medias. In div due to seperate styling than other photos in this div. Photos alligned to center -->
+            <div id="social" style="text-align: center;">
+
+                <!-- Link to my Github page -->
+                <a href="https://github.com/Hamza-exe">
+                    <img src="images/github.png" class="photo" alt="My Github Page">
+                </a>
+
+                <!-- Link to my instagram page -->
+                <a href="https://www.instagram.com/notoriousmoza/">
+                    <img src="images/instagram.webp" class="photo" alt="My Instagram Page">
+                </a>
+
+                <!-- Link to my facebook page -->
+                <a href="https://www.facebook.com/profile.php?id=100010313829213">
+                    <img src="images/facebook.webp" class="photo" alt="My Facebook Page">
+                </a>
+                
+                <!-- Link to my youtube page -->
+                <a href="https://www.youtube.com/channel/UCYTfeACDrpILPk3aRw5B7aw">
+                    <img src="images/youtube.webp" class="photo" alt="My Youtube Page">
+                </a>
+            </div>
+
+            <!-- Form, styled to be centered and contains many typed of input -->
+            <form style="text-align: center;" action="https://formspree.io/f/xpzkrrbk" method="POST" enctype="text/plain" id="my-form">
+
+                <!--Place Visitor contact name -->
+                <input type="text" id="name" name="Name" placeholder="Name" maxlength="7"><br>
+      
+                <!--Visitor fills their Email address info -->
+                <input type="text" id="eaddress" name="Email" placeholder="Email Address" maxlength="100"><br>
+
+                <!--Visitor fills the subject-->
+                <input type="text" id="subject" name="Subject" placeholder="Subject" maxlength="100" >
+      
+                <!--Text box area for visitor to ask question-->
+                <br><textarea id="message" placeholder="Type your message here..." name="Message"></textarea><br>
+      
+                <!--Submit button for visitor to send their request, contains ID for seperate styling and to center it-->
+                <input type="submit" id="submit" value="Submit">
+
+                <!-- code sourced from: https://formspree.io/forms/xpzkrrbk/integration, message showing whether message was delivered or error occured -->
+                <p id="status" style="margin-top: 10px;"></p>
+            </form> 
+        </div>
+
+        <script>
+
+            /*Script code sourced from: https://formspree.io/forms/xpzkrrbk/integration, commented by me. Script code to display messages to the client and clean the form. script code wasnt commented and I had a hard time finding an explanation, some parts not commented, modified by me*/
+            var form = document.getElementById("my-form");
+            
+            async function handleSubmit(event) {
+                event.preventDefault();
+                var status = document.getElementById("status");
+                var data = new FormData(event.target);
+                fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+
+                    /*calls the animation when submit button is pressed, my modification*/
+                    status.classList.add("animation");
+
+                    /*When the message is succesfully delivered, this message is displayed*/
+                    status.innerHTML = "Thank you!";
+                    form.reset()
+                }).catch(error => {
+                    
+                    /*calls the animation when submit button is pressed, , my modification*/
+                    status.classList.add("animation");
+
+                    /*if an error occurrs while submitting their message, this message is displayed*/
+                    status.innerHTML = "Oops! There was a problem submitting your message"
+                });
+            }
+
+            form.addEventListener("submit", handleSubmit)
+        </script>
+
+        <!-- footer containing copyright text and social media links -->
+        <footer>
+
+            <!-- Div containing social media icons with links to my social medias. In div due to seperate styling than other photos in this div. Photos alligned to center -->
+            <div id="social" style="text-align: center;">
+
+                <!-- Link to my Github page -->
+                <a href="https://github.com/Hamza-exe">
+                    <img src="images/github.png" class="photo" alt="My Github Page">
+                </a>
+
+                <!-- Link to my instagram page -->
+                <a href="https://www.instagram.com/notoriousmoza/">
+                    <img src="images/instagram.webp" class="photo" alt="My Instagram Page">
+                </a>
+
+                <!-- Link to my facebook page -->
+                <a href="https://www.facebook.com/profile.php?id=100010313829213">
+                    <img src="images/facebook.webp" class="photo" alt="My Facebook Page">
+                </a>
+                
+                <!-- Link to my youtube page -->
+                <a href="https://www.youtube.com/channel/UCYTfeACDrpILPk3aRw5B7aw">
+                    <img src="images/youtube.webp" class="photo" alt="My Youtube Page">
+                </a>
+            </div>
+
+            <!-- Copyright text to prove ownership of website -->
+            <p id="copyright">©2021 by Hamza Elafifi.</p>
+            
+        </footer>
+        
+    </body>
+</html>
