@@ -1,0 +1,61 @@
+/*Code Sourced from previous activity, gives everything a certain font familt and adjusts the box sizing, sourced from Mr. Hardman*/
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+
+    /*this gives every bit of text this font*/
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*This styles every anchor tag to be whitesmoke in color and to not have an underline*/
+a{
+    text-decoration: none;
+    color: $text-background-color;
+}
+
+/*This styles every paragraph element to have a font size of 14 during mobile mode, with a white smoke color, center alligned, and certain padding*/
+p{
+    font-size: 14px;
+    color: $text-background-color;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*This styles every H1 tag to have 300% font size, during mobile, with color of white smoke, and text-alligned center with certain margin*/
+h1{
+    font-size: 300%;
+    color: $text-background-color;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+/*This styles the body to have no margin and gives it the black background color*/
+body{
+    margin: 0;
+    background-color: #000000;
+}
+
+/*This is used to specify sperate styling for screen widths that are desktops where the minimum width has to be 1280px*/
+@media all and (min-width: 1280px){
+
+    /*styles the paragraph elements during desktop mode*/
+    p{  
+
+        /*changes line height to 30px*/
+        line-height: 30px;
+        font-size: 16px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    /*styles the h1 during desktop mode*/
+    h1{
+        font-size: 400%;
+        margin-top: 60px;
+    }
+
+}
