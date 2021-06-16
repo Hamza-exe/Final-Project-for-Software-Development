@@ -172,24 +172,31 @@ Date Last Modified: June, 15, 2021
             /*Script code sourced from: https://formspree.io/forms/xpzkrrbk/integration, commented by me. Script code to display messages to the client and clean the form. script code wasnt commented and I had a hard time finding an explanation, some parts not commented. Modified some sections*/
             var form = document.getElementById("my-form");
             
-            async function handleSubmit(event) {
+            async function handleSubmit(event) 
+            {
                 event.preventDefault();
                 var status = document.getElementById("status");
                 var data = new FormData(event.target);
-                fetch(event.target.action, {
+                fetch(event.target.action, 
+                {
                     method: form.method,
                     body: data,
-                    headers: {
+                    headers: 
+                    {
                         'Accept': 'application/json'
                     }
-                }).then(response => {
+                })
+                .then(response => 
+                {
                     /*calls the animation when submit button is pressed, , my modification*/
                     status.classList.add("animation");
 
                     /*When the message is succesfully delivered, this message is displayed*/
                     status.innerHTML = "Thank you!";
                     form.reset()
-                }).catch(error => {
+                })
+                .catch(error => 
+                {
                     /*calls the animation when submit button is pressed, , my modification*/
                     status.classList.add("animation");
 
